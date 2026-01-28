@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://4cwnyi4mvyqe"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/ShopItemWindow.gd" id="1_uvluy"]
+
+[node name="ShopItemWindow" type="Node2D"]
+script = ExtResource("1_uvluy")
+
+[node name="ShopItemWindowBackground" type="ColorRect" parent="."]
+offset_right = 448.0
+offset_bottom = 224.0
+
+[node name="ShopItemWindowForeground2" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 440.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="ShopItemWindowForeground" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 440.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="ShopItemWindowLabel" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 264.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 70
+text = "hi
+"
+vertical_alignment = 1
+
+[node name="ShopItemWindowLabelCost" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 168.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 70
+vertical_alignment = 1
+
+[node name="ShopItemWindowControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 448.0
+offset_bottom = 224.0
+
+[connection signal="gui_input" from="ShopItemWindowControl" to="." method="_on_shop_item_window_control_gui_input"]

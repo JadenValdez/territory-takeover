@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d6skchxphg3j"]
+
+[ext_resource type="Script" path="res://Scripts/GeneralManager/PhaseManager.gd" id="1_03gen"]
+[ext_resource type="Script" path="res://Scripts/GeneralManager/ConquestPhase.gd" id="2_gxprx"]
+[ext_resource type="Script" path="res://Scripts/Shop/ShopPhase.gd" id="3_1rqde"]
+
+[node name="PhaseManager" type="Node2D"]
+script = ExtResource("1_03gen")
+
+[node name="ConquestPhase" type="Node2D" parent="."]
+script = ExtResource("2_gxprx")
+
+[node name="ConquestTimer" type="Timer" parent="ConquestPhase"]
+
+[node name="ShopPhase" type="Node2D" parent="."]
+script = ExtResource("3_1rqde")
+
+[connection signal="timeout" from="ConquestPhase/ConquestTimer" to="ConquestPhase" method="_on_conquest_timer_timeout"]

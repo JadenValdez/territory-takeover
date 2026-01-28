@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1r2hhtepdoqc"]
+
+[ext_resource type="Script" path="res://Scripts/Conquest/Coin.gd" id="1_hpssb"]
+[ext_resource type="Texture2D" uid="uid://bhvsd2tknti5d" path="res://Assests/coinflip.png" id="2_4qq5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dipty"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(7, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6jrl"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(27, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1anyh"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(47, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8q8h"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(67, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_227ew"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(87, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6clq3"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(107, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18fbm"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(127, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnom0"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(147, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu7sg"]
+atlas = ExtResource("2_4qq5e")
+region = Rect2(167, 0, 20, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uv5ng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dipty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6jrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1anyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8q8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_227ew")
+}],
+"loop": false,
+"name": &"Coin Flip 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6clq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18fbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnom0")
+}, {
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_lu7sg")
+}],
+"loop": false,
+"name": &"Coin Flip 2",
+"speed": 5.0
+}]
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_hpssb")
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 0)
+scale = Vector2(2.85, 2.85)
+sprite_frames = SubResource("SpriteFrames_uv5ng")
+animation = &"Coin Flip 1"
+speed_scale = 20.0
+
+[connection signal="animation_finished" from="CoinSprite" to="." method="_on_coin_sprite_animation_finished"]

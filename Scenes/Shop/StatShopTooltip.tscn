@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dck7dfqjves4r"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/StatShopTooltip.gd" id="1_j3ysn"]
+
+[node name="StatShopTooltip" type="Node2D"]
+visible = false
+z_index = 1
+script = ExtResource("1_j3ysn")
+
+[node name="StatShopTooltipBackground" type="ColorRect" parent="."]
+offset_right = 448.0
+offset_bottom = 376.0
+color = Color(0, 0, 0, 1)
+
+[node name="StatShopTooltipLabelTop" type="Label" parent="."]
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 31.0
+text = "hi
+"
+horizontal_alignment = 1
+
+[node name="StatShopTooltipLabelDescription" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 432.0
+offset_bottom = 360.0
+text = "hi
+"
+autowrap_mode = 3

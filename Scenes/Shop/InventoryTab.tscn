@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvmivyy7dkwf"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/InventoryTab.gd" id="1_qtnof"]
+
+[node name="InventoryTab" type="Node2D"]
+z_index = 3
+script = ExtResource("1_qtnof")
+
+[node name="InventoryTabBackground" type="ColorRect" parent="."]
+offset_right = 128.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="InventoryTabLabel" type="Label" parent="."]
+offset_right = 128.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "Confirm
+"
+horizontal_alignment = 1
+
+[node name="InventoryTabControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[connection signal="gui_input" from="InventoryTabControl" to="." method="_on_inventory_tab_control_gui_input"]

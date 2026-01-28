@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd56dfljwcib8"]
+
+[ext_resource type="Script" path="res://Scripts/Conquest/PlayerOrder.gd" id="1_pwbfb"]
+
+[node name="PlayerOrder" type="Node2D"]
+script = ExtResource("1_pwbfb")

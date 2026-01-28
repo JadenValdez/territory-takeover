@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnjxkb5fbl3o5"]
+
+[ext_resource type="Script" path="res://Scripts/MainCamera.gd" id="1_c0n2a"]
+[ext_resource type="PackedScene" uid="uid://cd5448l2wicgk" path="res://Scenes/GeneralManager/PlayerManager.tscn" id="2_2m28r"]
+[ext_resource type="PackedScene" uid="uid://du20pl2724wp4" path="res://Scenes/GeneralManager/TileManager.tscn" id="2_woqxa"]
+[ext_resource type="PackedScene" uid="uid://d6skchxphg3j" path="res://Scenes/GeneralManager/PhaseManager.tscn" id="4_03glx"]
+[ext_resource type="PackedScene" uid="uid://bqlxqcaysktk3" path="res://Scenes/GeneralManager/UIManager.tscn" id="5_ajlox"]
+[ext_resource type="PackedScene" uid="uid://c2w3o75hnvks8" path="res://Scenes/GeneralManager/ItemManager.tscn" id="5_q2vxp"]
+[ext_resource type="PackedScene" uid="uid://c2oi6d7domrgd" path="res://Scenes/GeneralManager/AttackManager.tscn" id="6_w0kk0"]
+
+[node name="Territory Takeover" type="Node2D"]
+
+[node name="MainCamera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("1_c0n2a")
+
+[node name="PlayerManager" parent="." instance=ExtResource("2_2m28r")]
+
+[node name="TileManager" parent="." instance=ExtResource("2_woqxa")]
+
+[node name="PhaseManager" parent="." instance=ExtResource("4_03glx")]
+
+[node name="ItemManager" parent="." instance=ExtResource("5_q2vxp")]
+
+[node name="AttackManager" parent="." instance=ExtResource("6_w0kk0")]
+
+[node name="UiManager" parent="." instance=ExtResource("5_ajlox")]

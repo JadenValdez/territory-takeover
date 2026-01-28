@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyff1xj8cl60e"]
+
+[ext_resource type="Script" path="res://Scripts/Conquest/ConfirmAttackButton.gd" id="1_ko6fc"]
+
+[node name="ConfirmAttackButton" type="Node2D"]
+script = ExtResource("1_ko6fc")
+
+[node name="ConfirmAttackButtonBackground" type="ColorRect" parent="."]
+offset_right = 160.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="ConfirmAttackButtonLabel" type="Label" parent="."]
+offset_right = 160.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "Confirm Attack"
+horizontal_alignment = 1
+
+[node name="ConfirmAttackButtonControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 32.0
+
+[connection signal="gui_input" from="ConfirmAttackButtonControl" to="." method="_on_confirm_attack_button_control_gui_input"]

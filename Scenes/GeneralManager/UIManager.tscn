@@ -1,0 +1,295 @@
+[gd_scene load_steps=21 format=3 uid="uid://bqlxqcaysktk3"]
+
+[ext_resource type="Script" path="res://Scripts/GeneralManager/UIManager.gd" id="1_yehf0"]
+[ext_resource type="Script" path="res://Scripts/GeneralInfo.gd" id="2_upgnp"]
+[ext_resource type="Script" path="res://Scripts/TileInfo.gd" id="3_ufjql"]
+[ext_resource type="Script" path="res://Scripts/Conquest/BattleUI.gd" id="4_mq4n6"]
+[ext_resource type="Script" path="res://Scripts/Shop/ShopUI.gd" id="4_tj51a"]
+[ext_resource type="PackedScene" uid="uid://bsungkmt0isp7" path="res://Scenes/Conquest/AttackBar.tscn" id="5_oewlk"]
+[ext_resource type="PackedScene" uid="uid://cd56dfljwcib8" path="res://Scenes/Conquest/PlayerOrder.tscn" id="6_3h8jr"]
+[ext_resource type="PackedScene" uid="uid://bmbgjthy7i01h" path="res://Scenes/Shop/ConfirmStats.tscn" id="6_xex72"]
+[ext_resource type="PackedScene" uid="uid://ldlbfrsjkyb6" path="res://Scenes/Shop/ResetStats.tscn" id="7_jnnxw"]
+[ext_resource type="PackedScene" uid="uid://dmfh870w28lk2" path="res://Scenes/Shop/ShopItemPreview.tscn" id="8_0iait"]
+[ext_resource type="PackedScene" uid="uid://dck7dfqjves4r" path="res://Scenes/Shop/StatShopTooltip.tscn" id="8_h5j5k"]
+[ext_resource type="Script" path="res://Scripts/Shop/ShopNextStatLevel.gd" id="10_5477o"]
+[ext_resource type="Script" path="res://Scripts/Shop/ShopItemCategoryTooltip.gd" id="11_1fkdh"]
+[ext_resource type="PackedScene" uid="uid://dax3pxt4vvfsw" path="res://Scenes/Shop/BuyItem.tscn" id="12_tpvs1"]
+[ext_resource type="PackedScene" uid="uid://cjuqbtjc6148s" path="res://Scenes/Shop/Inventory.tscn" id="13_amglw"]
+[ext_resource type="PackedScene" uid="uid://chwklgsif6r5k" path="res://Scenes/Shop/ShopButton.tscn" id="13_f84v2"]
+[ext_resource type="PackedScene" uid="uid://cyff1xj8cl60e" path="res://Scenes/Conquest/ConfirmAttackButton.tscn" id="15_yiw8p"]
+[ext_resource type="PackedScene" uid="uid://bt4lw2o4pworw" path="res://Scenes/Conquest/StartConquestButton.tscn" id="16_2bfdf"]
+[ext_resource type="PackedScene" uid="uid://ser13mjpjfa5" path="res://Scenes/Shop/CancelItem.tscn" id="19_lahn5"]
+[ext_resource type="PackedScene" uid="uid://byboqt8ucgp11" path="res://Scenes/Shop/UseItem.tscn" id="20_sa236"]
+
+[node name="UiManager" type="CanvasLayer"]
+script = ExtResource("1_yehf0")
+
+[node name="GeneralInfo" type="Node2D" parent="."]
+position = Vector2(936, 416)
+script = ExtResource("2_upgnp")
+
+[node name="GeneralInfoBackground" type="ColorRect" parent="GeneralInfo"]
+offset_right = 200.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="GeneralInfoLabel" type="Label" parent="GeneralInfo"]
+offset_left = 16.0
+offset_right = 179.0
+offset_bottom = 23.0
+text = "Current Player: None"
+
+[node name="TileInfoTooltip" type="Node2D" parent="."]
+visible = false
+position = Vector2(112, 376)
+script = ExtResource("3_ufjql")
+
+[node name="TileInfoBackground" type="ColorRect" parent="TileInfoTooltip"]
+offset_right = 200.0
+offset_bottom = 200.0
+color = Color(0, 0, 0, 1)
+
+[node name="TileInfoLabel_ID" type="Label" parent="TileInfoTooltip"]
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 30
+text = "
+"
+
+[node name="TileInfoLabel" type="Label" parent="TileInfoTooltip"]
+offset_left = 15.0
+offset_top = 55.0
+offset_right = 185.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 20
+text = "
+"
+
+[node name="BattleUI" type="Node2D" parent="."]
+script = ExtResource("4_mq4n6")
+
+[node name="CoinFlipBackground" type="ColorRect" parent="BattleUI"]
+visible = false
+offset_left = -24.0
+offset_top = 235.0
+offset_right = 1176.0
+offset_bottom = 379.0
+color = Color(1, 1, 1, 0.568627)
+
+[node name="DuelPlayerOne" type="Polygon2D" parent="BattleUI"]
+visible = false
+position = Vector2(584, 232)
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 0.847059)
+polygon = PackedVector2Array(0, -128, -64, -64, -320, -64, -320, -128)
+
+[node name="PlayerOneLabel" type="Label" parent="BattleUI/DuelPlayerOne"]
+offset_left = -212.0
+offset_top = -104.0
+offset_right = -127.0
+offset_bottom = -81.0
+text = "Player One"
+horizontal_alignment = 1
+
+[node name="PlayerOneAttackValueLabel" type="Label" parent="BattleUI/DuelPlayerOne"]
+visible = false
+offset_left = -100.0
+offset_top = -92.0
+offset_right = -60.0
+offset_bottom = -69.0
+text = "1
+"
+horizontal_alignment = 1
+
+[node name="ATKLabel" type="Label" parent="BattleUI/DuelPlayerOne/PlayerOneAttackValueLabel"]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 3.0
+text = "ATK
+"
+horizontal_alignment = 1
+
+[node name="DuelPlayerTwo" type="Polygon2D" parent="BattleUI"]
+visible = false
+position = Vector2(552, 232)
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 0.847059)
+polygon = PackedVector2Array(0, -128, 64, -64, 320, -64, 320, -128)
+
+[node name="PlayerTwoLabel" type="Label" parent="BattleUI/DuelPlayerTwo"]
+offset_left = 132.0
+offset_top = -104.0
+offset_right = 217.0
+offset_bottom = -81.0
+text = "Player Two"
+horizontal_alignment = 1
+
+[node name="PlayerTwoDefenseValueLabel" type="Label" parent="BattleUI/DuelPlayerTwo"]
+visible = false
+offset_left = 60.0
+offset_top = -92.0
+offset_right = 100.0
+offset_bottom = -69.0
+text = "1
+"
+horizontal_alignment = 1
+
+[node name="DEFLabel" type="Label" parent="BattleUI/DuelPlayerTwo/PlayerTwoDefenseValueLabel"]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 3.0
+text = "DEF
+"
+horizontal_alignment = 1
+
+[node name="AttackBar" parent="BattleUI" instance=ExtResource("5_oewlk")]
+visible = false
+position = Vector2(272, 136)
+
+[node name="PlayerOrder" parent="." instance=ExtResource("6_3h8jr")]
+position = Vector2(960, 32)
+
+[node name="ShopUI" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_tj51a")
+
+[node name="StatsBackground" type="ColorRect" parent="ShopUI"]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 322.0
+offset_bottom = 572.0
+color = Color(0, 0, 0, 0.847059)
+
+[node name="StatsLabel" type="Label" parent="ShopUI"]
+offset_left = 88.0
+offset_top = 88.0
+offset_right = 168.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 30
+text = "Stats:"
+
+[node name="ItemsBackground" type="ColorRect" parent="ShopUI"]
+offset_left = 360.0
+offset_top = 72.0
+offset_right = 960.0
+offset_bottom = 572.0
+color = Color(0, 0, 0, 0.847059)
+
+[node name="ItemsLabel" type="Label" parent="ShopUI"]
+offset_left = 376.0
+offset_top = 88.0
+offset_right = 456.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 30
+text = "Items:"
+
+[node name="CoinsLabel" type="Label" parent="ShopUI"]
+offset_left = 872.0
+offset_top = 88.0
+offset_right = 944.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="MoneySign" type="Label" parent="ShopUI"]
+offset_left = 852.0
+offset_top = 88.0
+offset_right = 869.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 30
+text = "$"
+
+[node name="ConfirmStats" parent="ShopUI" instance=ExtResource("6_xex72")]
+position = Vector2(64, 0)
+
+[node name="ResetStats" parent="ShopUI" instance=ExtResource("7_jnnxw")]
+position = Vector2(-56, 0)
+
+[node name="ShopItemPreview" parent="ShopUI" instance=ExtResource("8_0iait")]
+position = Vector2(712, 136)
+scale = Vector2(0.5, 0.5)
+
+[node name="StatShopTooltip" parent="ShopUI" instance=ExtResource("8_h5j5k")]
+position = Vector2(336, 144)
+
+[node name="NextStatLevel" type="Node2D" parent="ShopUI"]
+visible = false
+z_index = 1
+position = Vector2(328, 144)
+script = ExtResource("10_5477o")
+
+[node name="Background" type="ColorRect" parent="ShopUI/NextStatLevel"]
+offset_right = 120.0
+offset_bottom = 48.0
+color = Color(0, 0, 0, 1)
+
+[node name="CostLabel" type="Label" parent="ShopUI/NextStatLevel"]
+offset_left = 48.0
+offset_right = 120.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="MoneySign" type="Label" parent="ShopUI/NextStatLevel"]
+offset_left = 24.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "$"
+
+[node name="Symbol" type="Label" parent="ShopUI/NextStatLevel"]
+offset_right = 25.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "-"
+horizontal_alignment = 1
+
+[node name="ShopItemCategoryTooltip" type="Node2D" parent="ShopUI"]
+z_index = 1
+position = Vector2(296, 328)
+script = ExtResource("11_1fkdh")
+
+[node name="Background" type="ColorRect" parent="ShopUI/ShopItemCategoryTooltip"]
+visible = false
+offset_right = 208.0
+offset_bottom = 208.0
+color = Color(0, 0, 0, 1)
+
+[node name="DescriptionLabel" type="Label" parent="ShopUI/ShopItemCategoryTooltip"]
+offset_left = 80.0
+offset_top = 184.0
+offset_right = 264.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.454)
+theme_override_font_sizes/font_size = 15
+text = "
+"
+autowrap_mode = 3
+
+[node name="BuyItem" parent="ShopUI" instance=ExtResource("12_tpvs1")]
+position = Vector2(776, 520)
+
+[node name="Inventory" parent="." instance=ExtResource("13_amglw")]
+position = Vector2(0, 616)
+
+[node name="ButtonUI" type="Node2D" parent="."]
+
+[node name="ShopButton" parent="ButtonUI" instance=ExtResource("13_f84v2")]
+position = Vector2(1000, 576)
+
+[node name="ConfirmAttackButton" parent="ButtonUI" instance=ExtResource("15_yiw8p")]
+position = Vector2(984, 528)
+
+[node name="StartConquestButton" parent="ButtonUI" instance=ExtResource("16_2bfdf")]
+
+[node name="CancelItem" parent="ButtonUI" instance=ExtResource("19_lahn5")]
+visible = false
+position = Vector2(720, 600)
+
+[node name="UseItem" parent="ButtonUI" instance=ExtResource("20_sa236")]
+visible = false
+position = Vector2(720, 552)

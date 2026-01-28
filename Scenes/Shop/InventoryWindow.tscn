@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxneg44qsuwop"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/InventoryWindow.gd" id="1_uyywd"]
+[ext_resource type="Texture2D" uid="uid://ds3pcdn7m8lrn" path="res://Assests/Items/tilesprite.png" id="2_rfvns"]
+
+[node name="InventoryWindow" type="Node2D"]
+z_index = 3
+script = ExtResource("1_uyywd")
+
+[node name="InventoryWindowBackground" type="ColorRect" parent="."]
+offset_right = 456.0
+offset_bottom = 320.0
+
+[node name="InventoryWindowForeground2" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 312.0
+color = Color(0, 0, 0, 1)
+
+[node name="InventoryWindowForeground" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 312.0
+color = Color(0, 0, 0, 1)
+
+[node name="InventoryWindowLabelName" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 240.0
+offset_right = 448.0
+offset_bottom = 295.0
+theme_override_font_sizes/font_size = 40
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryWindowLabelAmount" type="Label" parent="."]
+offset_left = 368.0
+offset_top = 240.0
+offset_right = 456.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryWindowWindowControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 456.0
+offset_bottom = 320.0
+
+[node name="InventoryWindowTileSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(232, 136)
+scale = Vector2(9, 9)
+texture = ExtResource("2_rfvns")
+
+[node name="InventoryWindowSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(232, 136)
+
+[connection signal="gui_input" from="InventoryWindowWindowControl" to="." method="_on_inventory_window_window_control_gui_input"]

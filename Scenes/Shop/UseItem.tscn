@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://byboqt8ucgp11"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/UseItem.gd" id="1_uc10t"]
+
+[node name="UseItem" type="Node2D"]
+script = ExtResource("1_uc10t")
+
+[node name="UseItemBackground" type="ColorRect" parent="."]
+offset_right = 112.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="UseItemLabel" type="Label" parent="."]
+offset_right = 112.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "Use Item
+"
+horizontal_alignment = 1
+
+[node name="UseItemControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 112.0
+offset_bottom = 32.0
+
+[connection signal="gui_input" from="UseItemControl" to="." method="_on_use_item_control_gui_input"]

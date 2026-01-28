@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmfh870w28lk2"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/ShopItemPreview.gd" id="1_ppjnd"]
+[ext_resource type="Texture2D" uid="uid://ds3pcdn7m8lrn" path="res://Assests/Items/tilesprite.png" id="2_uo6mb"]
+[ext_resource type="Texture2D" uid="uid://bqtfu7cdjgnv5" path="res://Assests/Items/outofstocksprite.png" id="3_6tpkw"]
+
+[node name="ShopItemPreview" type="Node2D"]
+script = ExtResource("1_ppjnd")
+
+[node name="ShopItemPreviewBackground" type="ColorRect" parent="."]
+offset_right = 472.0
+offset_bottom = 728.0
+
+[node name="ShopItemPreviewForeground" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 464.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="ShopItemTileBackgroundSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 232)
+scale = Vector2(18.75, 18.75)
+texture = ExtResource("2_uo6mb")
+
+[node name="ShopItemSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 232)
+scale = Vector2(18.75, 18.75)
+
+[node name="ShopItemPreviewDescriptionLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 400.0
+offset_right = 448.0
+offset_bottom = 608.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ShopItemPreviewNameLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 448.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "
+"
+horizontal_alignment = 1
+
+[node name="ShopItemPreviewStockLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 640.0
+offset_right = 448.0
+offset_bottom = 704.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="OutOfStockSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(245, 240)
+rotation = -0.785398
+scale = Vector2(15, 15)
+texture = ExtResource("3_6tpkw")

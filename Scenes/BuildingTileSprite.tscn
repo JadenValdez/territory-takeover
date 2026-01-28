@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csb2utuu5avks"]
+
+[ext_resource type="Script" path="res://Scripts/BuildingTileSprite.gd" id="1_qhhk1"]
+
+[node name="BuildingTileSprite" type="Sprite2D"]
+script = ExtResource("1_qhhk1")

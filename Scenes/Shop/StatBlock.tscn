@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdhrqf8jb1o0h"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/StatBlock.gd" id="1_l0nn8"]
+
+[node name="StatBlock" type="Node2D"]
+script = ExtResource("1_l0nn8")
+
+[node name="StatBlockBackground" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 86.0
+
+[node name="BlackBar" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 84.0
+
+[node name="StatBlockFill" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 84.0

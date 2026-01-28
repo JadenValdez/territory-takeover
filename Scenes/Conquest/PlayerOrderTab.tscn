@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://82jdep2bs44n"]
+
+[ext_resource type="Texture2D" uid="uid://dbxf880twumlp" path="res://Assests/Icons/icon.svg" id="1_upcgc"]
+[ext_resource type="Script" path="res://Scripts/Conquest/PlayerOrderTab.gd" id="1_y84oa"]
+
+[node name="PlayerOrderTab" type="Node2D"]
+script = ExtResource("1_y84oa")
+
+[node name="PlayerOrderTabBackground" type="Polygon2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(24, 0, 64, 64, 192, 64, 192, 0)
+
+[node name="PlayerOrderTabName" type="Label" parent="."]
+offset_left = 32.0
+offset_right = 120.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Player"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PlayerOrderTabSpeed" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 104.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SPD:"
+horizontal_alignment = 1
+
+[node name="PlayerOrderTabSpeedNum" type="Label" parent="."]
+offset_left = 104.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "2"
+
+[node name="PlayerOrderTabIcon" type="Sprite2D" parent="."]
+position = Vector2(160, 32)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("1_upcgc")
+
+[node name="PlayerLives" type="Label" parent="."]
+visible = false
+offset_left = 128.0
+offset_right = 192.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 40
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1

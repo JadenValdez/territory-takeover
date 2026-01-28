@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjuqbtjc6148s"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/Inventory.gd" id="1_om8oo"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_om8oo")
+
+[node name="InventoryButton" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(56, 0)
+
+[node name="InventoryButtonBackground" type="ColorRect" parent="InventoryButton"]
+offset_right = 112.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="InventoryButtonLabel" type="Label" parent="InventoryButton"]
+offset_right = 112.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+text = "Inventory
+"
+horizontal_alignment = 1
+
+[node name="InventoryButtonControl" type="Control" parent="InventoryButton"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 112.0
+offset_bottom = 32.0
+
+[node name="InventoryBackground" type="Node2D" parent="."]
+z_index = 2
+
+[node name="InventoryBackgroundColor" type="ColorRect" parent="InventoryBackground"]
+offset_top = 32.0
+offset_right = 704.0
+offset_bottom = 192.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="gui_input" from="InventoryButton/InventoryButtonControl" to="." method="_on_inventory_button_control_gui_input"]

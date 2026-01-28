@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs6bno383rt7e"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/ShopStatsButton.gd" id="1_b0bdx"]
+
+[node name="ShopStatsButton" type="Node2D"]
+script = ExtResource("1_b0bdx")
+
+[node name="PlusButtonBackground" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_right = 56.0
+offset_bottom = 56.0
+
+[node name="PlusShape" type="Polygon2D" parent="."]
+position = Vector2(8, 72)
+polygon = PackedVector2Array(16, -64, 16, -48, 0, -48, 0, -40, 16, -40, 16, -24, 24, -24, 24, -40, 40, -40, 40, -48, 24, -48, 24, -64)
+
+[node name="MinusButtonBackground" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 72.0
+offset_right = 128.0
+offset_bottom = 56.0
+
+[node name="MinusShape" type="Polygon2D" parent="."]
+position = Vector2(80, 144)
+polygon = PackedVector2Array(0, -120, 0, -112, 40, -112, 40, -120, 10.9545, -120)
+
+[node name="PlusButtonControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 56.0
+offset_bottom = 56.0
+
+[node name="MinusButtonControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 72.0
+offset_right = 128.0
+offset_bottom = 56.0
+
+[connection signal="gui_input" from="PlusButtonControl" to="." method="_on_plus_button_control_gui_input"]
+[connection signal="mouse_entered" from="PlusButtonControl" to="." method="_on_plus_button_control_mouse_entered"]
+[connection signal="mouse_exited" from="PlusButtonControl" to="." method="_on_plus_button_control_mouse_exited"]
+[connection signal="gui_input" from="MinusButtonControl" to="." method="_on_minus_button_control_gui_input"]
+[connection signal="mouse_entered" from="MinusButtonControl" to="." method="_on_minus_button_control_mouse_entered"]
+[connection signal="mouse_exited" from="MinusButtonControl" to="." method="_on_minus_button_control_mouse_exited"]
